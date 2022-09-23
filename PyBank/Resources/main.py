@@ -20,8 +20,7 @@ while agains == "y":
 
     # Loop through looking for the video
         for row in csvreader:
-            if row[0] == book:
-                print(row[0] + " was published by " + row[8] + " in " + row[9])
+                print(row[0])
 
             # Set variable to confirm we have found the video
                 found = True
