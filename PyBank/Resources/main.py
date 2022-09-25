@@ -3,32 +3,59 @@ import os
 import csv
 agains = "y"
 
-while agains == "y":
-# Prompt user for title lookup
-    book = input("What title are you looking for? ")
+total_months = 0
+total = 0
+changes = 0
+high_months = " "
+low_months = " "
+high = 0
+low = 0
+
+
   
 
 # Set path for file
-    csvpath = os.path.join("budget_data.csv")
+csvpath = os.path.join("budget_data.csv")
 
-# Set variable to check if we found the video
-    found = False
+
 
 # Open the CSV
-    with open(csvpath, encoding='utf') as csvfile:
+with open(csvpath, encoding='utf') as csvfile:
         csvreader = csv.reader(csvfile, delimiter=",")
+
+        csv_header = next(csvreader)
 
     # Loop through looking for the video
         for row in csvreader:
-                print(row[0])
+                total_months= total_months + 1
+                total = int(row[1]) + total
 
-            # Set variable to confirm we have found the video
-                found = True
-                agains = input("Would you like to try again?")
+                if int(row[1]) > high:
+                    high = int(row[1])
+                if low > int(row[1]): 
+                    low = int(row[1])
 
 
-    # If the book is never found, alert the user
+        changes = total/total_months
 
-    if found is False:
-        print("Sorry about this, we don't seem to have what you are looking for!")
-        agains = input("Would you like to try again?")
+print(f"Financial Analysis")
+print(f"--------------------------")
+print(f"Total Months: {total_months}")
+print(f"Total ${total}")
+print(f"Average Change: ${changes}")
+print(f"Greatest Increase in Profits: {high_months} {high}")
+print(f"Greatest Decrease in Profits: {low_months} {low}")
+
+txtpath = os.path.join("..","..","Analysis","Analysis_Bank.txt")
+
+with open(txtpath, 'w') as f:
+    
+    f.write(f"Financial Analysis")
+    f.write('\n'f"--------------------------")
+    f.write('\n'f"Total Months: {total_months}")
+    f.write('\n'f"Total ${total}")
+    f.write('\n'f"Average Change: ${changes}")
+    f.write('\n'f"Greatest Increase in Profits: {high_months} {high}")
+    f.write('\n'f"Greatest Decrease in Profits: {low_months} {low}")
+        
+
