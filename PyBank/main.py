@@ -15,7 +15,7 @@ summy = 0
 hold = 0
 grab = 0
 
-profit_change = []
+
 total_profit = []
 
 # Set path for file
