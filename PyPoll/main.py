@@ -54,7 +54,7 @@ winner = candidates[hold]
 print(f"Winner: {winner}")
 print(f"--------------------------")
 
-txtpath = os.path.join("..","..","Analysis","Analysis_Poll.txt")
+txtpath = os.path.join("..","Analysis","Analysis_Poll.txt")
 
 with open(txtpath, 'w') as f:
     f.write(f"Election Results")

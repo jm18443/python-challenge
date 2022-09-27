@@ -59,7 +59,7 @@ print(f"Average Change: ${round(changes,2)}")
 print(f"Greatest Increase in Profits: {high_months} ${high}")
 print(f"Greatest Decrease in Profits: {low_months} ${low}")
 
-txtpath = os.path.join("..","..","Analysis","Analysis_Bank.txt")
+txtpath = os.path.join("..","Analysis","Analysis_Bank.txt")
 
 with open(txtpath, 'w') as f:
     
